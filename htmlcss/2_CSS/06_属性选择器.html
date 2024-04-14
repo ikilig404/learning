@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>06_属性选择器</title>
+    <style>
+        /* [title] {
+            color: red;
+        } */
+        /* [title="atguigu1"] {
+            color: red;
+        } */
+        /* [title^="g"] {
+            color: red;
+        } */
+        /* [title$="4"] {
+            color: red;
+        } */
+        [title*="u"] {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div title="atguigu1">尚硅谷1</div>
+    <div title="atguigu2">尚硅谷2</div>
+    <div title="guigu3">尚硅谷3</div>
+    <div title="guigu4">尚硅谷4</div>
+</body>
+</html>

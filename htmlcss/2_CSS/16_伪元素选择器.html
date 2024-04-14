@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        div::first-letter {
+            color: red;
+            font-size: 40px;
+        }
+        div::first-line {
+            background-color: yellow;
+        }
+        div::selection {
+            background-color: green;
+            color: orange;
+        }
+        input::placeholder {
+            color: skyblue;
+        }
+        p::before {
+            content: "￥";
+        }
+        p::after {
+            content: ".00";
+        }
+    </style>
+</head>
+<body>
+    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur eveniet debitis cum doloremque omnis rerum laudantium sint. Blanditiis sint expedita quod, a unde placeat inventore facilis! Nulla eveniet perferendis quia fugit, incidunt magnam nesciunt saepe odio eos labore eum repellat aliquam eius ipsa animi laudantium ut nobis rerum, ex deleniti cum doloremque! Nesciunt, quis ratione? Aliquid eveniet cum dolorem. Libero.</div>
+    <br>
+    <input type="text" placeholder="请输入您的用户名">
+    <p>199</p>
+    <p>299</p>
+    <p>399</p>
+    <p>499</p>
+</body>
+</html>

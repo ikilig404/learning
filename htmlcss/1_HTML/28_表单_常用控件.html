@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form action="https://search.jd.com/search">
+        账户：<input type="text" name="account" value="zhangsan" maxlength="10"><br>
+        密码：<input type="password" name="pwd" value="123" maxlength="6"><br>
+        性别：
+        <input type="radio" name="gender" value="male">男
+        <input type="radio" name="gender" value="female">女
+        <br>
+        爱好：
+        <input type="checkbox" name="hobby" value="smoke">抽烟
+        <input type="checkbox" name="hobby" value="drink">喝酒
+        <input type="checkbox" name="hobby" value="perm">烫头
+        <!-- 隐藏域 -->
+        <input type="hidden" name="abc" value="123">
+        <br>
+        籍贯：
+        <select name="place">
+            <option>河北</option>
+            <option>山东</option>
+            <option>山西</option>
+            <option>广东</option>
+        </select>
+        <br>
+        <button>确认</button>
+        <button type="reset">重置</button>
+    </form>
+</body>
+</html>
