@@ -2,19 +2,16 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>01_background-origin</title>
+    <title>04_background复合属性</title>
     <style>
         .box1 {
             width: 400px;
             height: 400px;
-            background-color: skyblue;
             margin: 0 auto;
             font-size: 40px;
             padding: 50px;
             border: 50px dashed black;
-            background-image: url('../images/bg01.jpg');
-            background-repeat: no-repeat;
-            background-origin: border-box;
+            background: skyblue url('../images/bg03.jpg') no-repeat 10px 10px / 500px 500px border-box content-box;
         }
     </style>
 </head>
