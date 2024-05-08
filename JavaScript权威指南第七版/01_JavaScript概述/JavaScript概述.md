@@ -330,3 +330,111 @@ p.distance()  // => Math.SQRT2
 **第 17 章 JavaScript 工具和扩展**
 
 涵盖广泛应用并有效提升开发者效率的工具及语言扩展。
+
+## 4 示例：字符频率柱形图
+
+本章最后展示一个虽短但并不简单的 JavaScript 程序。示例1-1是一个 Node 程序，它从标准输人读取文本，计算该文本的字符频率柱形图，然后打印出来。可以像下面这样调用这个程序，分析它自己源代码的字符频率：
+
+![image-20240508223253494](https://blog-wjw.oss-cn-hangzhou.aliyuncs.com/blog/image-20240508223253494.png)
+
+这个示例使用了一些高级 JavaScript 特性，有意让大家看看真正的 JavaScript 程序长什么样。不过，即使你不理解这些代码也没关系，其中用到的特性本书后续章节都会介绍。
+
+示例1-1：使用JavaScript计算字符频率柱形图
+
+```js
+/**
+ * 这个Node程序从标准输入中读取文本，计算文本中每个
+ * 字母出现的频率，然后按使用频率降序显示一个柱形图
+ * 运行这个程序需要Node12或更高版本
+ * 
+ * 在一个Unix类型的环境中，可以像下面这样调用它：
+ * node charfreq.js < corpus.txt
+ */
+
+// 这个类扩展了Map，以便get()方法在key
+// 不在映射中时返回指定的值，而不是null
+class DefaultMap extends Map {
+    constructor(defaultValue) {
+        super(); // 调用超类构造器
+        this.defaultValue = defaultValue; // 记住默认值
+    }
+
+    get(key) {
+        if (this.has(key)) { // 如果映射中有key
+            return super.get(key); // 从超类返回它的值
+        }
+        else {
+            return this.defaultValue; // 否则返回默认值
+        }
+    }
+}
+
+// 这个类计算并显示字母的频率柱形图
+class Histogram {
+    constructor() {
+        this.letterCounts = new DefaultMap(0); // 字母到数量的映射
+        this.totalLetters = 0; // 字母总数
+    }
+
+    // 这个函数用文本中的字母更新柱形图
+    add(text) {
+        // 移除文本中的空白，然后将字母转换为大写
+        text = text.replace(/\s/g, "").toUpperCase();
+        // 接着循环文本中的字符
+        for (let character of text) {
+            let count = this.letterCounts.get(character); // 取得之前的数量
+            this.letterCounts.set(character, count + 1); // 递增
+            this.totalLetters++;
+        }
+    }
+
+    // 将柱形图转换为字符串并显示 ASCII 图形
+    toString() {
+        // 把映射转换为一个 [key, value] 数组的数组
+        let entries = [...this.letterCounts];
+
+        // 按数量和字母表对数组排序
+        entries.sort((a, b) => { // 这个函数定义排序的方式
+            if (a[1] === b[1]) { // 如果数量相同，按字母表排序；如果数量不同，数量大的排前面
+                return a[0] < b[0] ? -1 : 1;
+            } else {
+                return b[1] - a[1];
+            }
+        });
+
+        // 把数量转换为百分比
+        for (let entry of entries) {
+            entry[1] = entry[1] / this.totalLetters * 100;
+        }
+
+        // 删除小于1%的条目
+        entries = entries.filter(entry => entry[1] >= 1);
+
+        // 接着把每个条目转换为一行文本
+        let lines = entries.map(([l, n]) => `${l}: ${"#".repeat(Math.round(n))} ${n.toFixed(2)}%`);
+
+        // 返回把所有行拼接起来的结果，以换行符分隔
+        return lines.join("\n");
+    }
+}
+
+// 这个async （返回期约的）函数创建一个Histogram对象
+// 从标准输入异步读取文本块，然后把这些块添加到柱形图
+// 在读取到流末尾后，返回柱形图
+async function histogramFromStdin() {
+    process.stdin.setEncoding("utf-8"); // 读取Unicode字符串，而非字节
+    let histogram = new Histogram();
+    for await (let chunk of process.stdin) {
+        histogram.add(chunk);
+    }
+    return histogram;
+}
+// 最后这行代码是这个程序的主体
+// 它基于标准输入创建一个Histogram对象，然后打印柱形图
+histogramFromStdin().then(histogram => { console.log(histogram.toString()); });
+
+```
+
+## 5 小结
+
+本书以自底向上的方式解释 JavaScript。这意味着要先从较低层次的注释、标识符、变量和类型讲起，然后在此基础上介绍表达式、语句、对象和函数。接着介绍更高层次的语言抽象，例如类和模块。本书的书名包含“权威”二字是认真的，接下来的章节对这门语言的解释可能详细得令人反感。然而，想要真正掌握 JavaScript 必须理解这些细节，希望你能花时间从头到尾读完这本书。不过，不要一上来就想着这样做。假如某一节内容你怎么也看不懂，可以先跳过去。等你对这门语言有了一个整体的了解时，可以再回来了解那些细节。
