@@ -10,14 +10,36 @@
             border: 1px solid black;
             float: left;
             margin-left: 50px;
+            font-size: 20px;
+        }
+        .box1 {
+            background-image: linear-gradient(red, yellow, green);
+        }
+        .box2 {
+            background-image: linear-gradient(to right top, red, yellow, green);
+        }
+        .box3 {
+            background-image: linear-gradient(20deg, red, yellow, green);
+        }
+        .box4 {
+            background-image: linear-gradient(45deg, red 50px, yellow 100px, green 150px);
+        }
+        .box5 {
+            background-image: linear-gradient(20deg, red, yellow, green);
+            font-size: 80px;
+            text-align: center;
+            line-height: 200px;
+            font-weight: bold;
+            color: transparent;
+            background-clip: text;
         }
     </style>
 </head>
 <body>
-    <div class="box box1">1</div>
+    <div class="box box1">默认情况（从上到下）</div>
     <div class="box box2">2</div>
     <div class="box box3">3</div>
     <div class="box box4">4</div>
-    <div class="box box5">5</div>
+    <div class="box box5">你好啊</div>
 </body>
 </html>
