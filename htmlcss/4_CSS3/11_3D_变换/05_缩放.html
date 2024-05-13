@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>05_缩放</title>
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            margin-top: 100px;
+            transform-style: preserve-3d;
+            perspective: 500px;
+            perspective-origin: 102px 102px;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: rgba(0, 191, 255, 0.726);
+            transform: scaleZ(4) rotateY(45deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">你好啊</div>
+    </div>
+</body>
+</html>
