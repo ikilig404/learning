@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>01_基本使用</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: deepskyblue;
+            animation-name: toright2;
+            animation-duration: 3s;
+            animation-delay: 0.5s;
+        }
+        /* 定义关键帧 */
+        @keyframes toright {
+            from {
+
+            }
+            to {
+                transform: translate(900px);
+                background-color: red;
+            }
+        }
+        @keyframes toright2 {
+            0% {
+
+            }
+            29% {
+                background-color: red;
+            }
+            48% {
+                background-color: orange;
+            }
+            88% {
+                background-color: yellow;
+            }
+            100% {
+                transform: translate(900px) rotate(360deg);
+                background-color: purple;
+                border-radius: 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>
