@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>02_高级使用</title>
+    <style>
+        .outer {
+            width: 1300px;
+            height: 900px;
+            border: 1px solid black;
+        }
+        .outer:hover .box {
+            width: 1300px;
+        }
+        .box {
+            width: 200px;
+            height: 100px;
+            transition-property: all;
+            transition-duration: 5s;
+            /* 过渡延迟 */
+            /* transition-delay: 2s; */
+        }
+        .box1 {
+            background-color: skyblue;
+            transition-timing-function: ease;
+        }
+        .box2 {
+            background-color: orange;
+            transition-timing-function: linear;
+        }
+        .box3 {
+            background-color: gray;
+            transition-timing-function: ease-in;
+        }
+        .box4 {
+            background-color: tomato;
+            transition-timing-function: ease-out;
+        }
+        .box5 {
+            background-color: green;
+            transition-timing-function: ease-in-out;
+        }
+        .box6 {
+            background-color: purple;
+            transition-timing-function: step-start;
+        }
+        .box7 {
+            background-color: deepskyblue;
+            transition-timing-function: step-end;
+        }
+        .box8 {
+            background-color: chocolate;
+            transition-timing-function: steps(20);
+        }
+        .box9 {
+            background-color: black;
+            transition-timing-function: cubic-bezier(.88, 1.03, .78, 1.24);
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box box1">ease (慢，快，慢)</div>
+        <div class="box box2">linear (匀速)</div>
+        <div class="box box3">ease-in (慢，快)</div>
+        <div class="box box4">ease-out (快，慢)</div>
+        <div class="box box5">ease-in-out (慢，快，慢)</div>
+        <div class="box box6">step-start (不考虑过渡的时间)</div>
+        <div class="box box7">step-end (过渡时间到了，瞬间到达终点)</div>
+        <div class="box box8">steps (分步过渡)</div>
+        <div class="box box9">cubic-bezier</div>
+    </div>
+</body>
+</html>
