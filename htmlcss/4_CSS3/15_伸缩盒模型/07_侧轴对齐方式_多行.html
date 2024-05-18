@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>07_侧轴对齐方式_多行</title>
+    <style>
+        .outer {
+            width: 1000px;
+            height: 900px;
+            background-color: #888;
+            margin: 0 auto;
+            display: flex;
+            /* 调整主轴方向：row默认值 */
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            /* align-content: flex-start; */
+            /* align-content: flex-end; */
+            /* align-content: center; */
+            /* align-content: space-around; */
+            /* align-content: space-between; */
+            /* align-content: space-evenly; */
+            align-content: stretch;
+        }
+        .inner {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        .inner2 {
+            height: 300px;
+        }
+        .inner3 {
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="inner">1</div>
+        <div class="inner inner2">2</div>
+        <div class="inner inner3">3</div>
+        <div class="inner">4</div>
+        <div class="inner">5</div>
+        <div class="inner">6</div>
+        <div class="inner">7</div>
+        <div class="inner">8</div>
+        <div class="inner">9</div>
+        <div class="inner">10</div>
+        <div class="inner">11</div>
+    </div>
+</body>
+</html>
