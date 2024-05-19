@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>02_媒体查询_媒体特性</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+        }
+        @media (width:800px) {
+            h1 {
+                background-color: green;
+            }
+        }
+        @media (max-width:700px) {
+            h1 {
+                background-color: orange;
+            }
+        }
+        @media (min-width:900px) {
+            h1 {
+                background-color: deepskyblue;
+            }
+        }
+        @media (device-width:2560px) {
+            h1 {
+                background-image: linear-gradient(red, green);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>你好啊</h1>
+</body>
+</html>

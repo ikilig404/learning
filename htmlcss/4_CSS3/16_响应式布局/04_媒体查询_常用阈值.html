@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>04_媒体查询_常用阈值</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            height: 200px;
+            background-color: gray;
+            text-align: center;
+            line-height: 200px;
+            font-size: 100px;
+        }
+        /* 超小屏幕 */
+        @media screen and (max-width:768px) {
+            h1 {
+                background-color: orange;
+            }
+        }
+        /* 中等屏幕 */
+        @media screen and (min-width:768px) and (max-width:992px) {
+            h1 {
+                background-color: green;
+            }
+        }
+        /* 大屏幕 */
+        @media screen and (min-width:992px) and (max-width:1200px) {
+            h1 {
+                background-color: deepskyblue;
+            }
+        }
+        @media screen and (min-width:1200px) {
+            h1 {
+                background-color: purple;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>你好啊</h1>
+</body>
+</html>
