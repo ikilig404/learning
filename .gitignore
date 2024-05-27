@@ -51,3 +51,8 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### 任意目录下的.idea
+**/.idea
+
+**/out
