@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./PieChart.js"></script>
+</head>
+<body>
+    <div id="chart"></div>
+
+    <script>
+        document.querySelector("#chart").append(pieChart({
+            width: 640,
+            height: 400,
+            cx: 200,
+            cy: 200,
+            r: 180,
+            lx: 400,
+            ly: 10,
+            data: {
+                "JavaScript": 71.5,
+                "Java": 45.4,
+                "Bash/Shell": 40.4,
+                "Python": 37.9,
+                "C#": 35.3,
+                "PHP": 31.4,
+                "C++": 24.6,
+                "C": 22.1,
+                "TypeScript": 18.3,
+                "Ruby": 10.3,
+                "Swift": 8.3,
+                "Objective-C": 7.3,
+                "Go": 7.2,
+            }
+        }));
+    </script>
+</body>
+</html>

@@ -489,3 +489,4 @@ customElements.define("inline-circle", class InlineCircle extends HTMLElement {
 });
 ```
 
+### 15.6.4 影子 DOM
