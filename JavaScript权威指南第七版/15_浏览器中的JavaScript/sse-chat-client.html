@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Chat</title>
+</head>
+<body>
+    <input id="input" style="width: 100%; padding: 10px; border: solid black 2px;" />
+
+    <script>
+        let nick = prompt("Enter your nickname");
+        let input = document.getElementById("input");
+        input.focus();
+
+        let chat = new EventSource("/chat");
+        chat.addEventListener("chat", event => {
+            let div = document.createElement("div");
+            div.append(event.data);
+            input.before(div);
+            input.scrollIntoView();
+        });
+
+        input.addEventListener("change", () => {
+            console.info(input.value);
+            fetch("/chat", {
+                method: "POST",
+                body: nick + ": " + input.value
+            })
+            .catch(e => console.error);
+            input.value = "";
+        })
+    </script>
+</body>
+</html>
